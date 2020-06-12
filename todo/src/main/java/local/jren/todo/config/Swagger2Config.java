@@ -1,4 +1,4 @@
-package local.jren.todos.config;
+package local.jren.todo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

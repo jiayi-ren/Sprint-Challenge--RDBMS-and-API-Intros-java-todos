@@ -1,4 +1,4 @@
-package local.jren.todos.config;
+package local.jren.todo.config;
 
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Value;

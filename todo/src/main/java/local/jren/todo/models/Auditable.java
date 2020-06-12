@@ -1,4 +1,4 @@
-package local.jren.todos.models;
+package local.jren.todo.models;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;

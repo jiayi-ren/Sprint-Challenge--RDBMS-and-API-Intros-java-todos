@@ -1,47 +1,34 @@
-package local.jren.todos.models;
+package local.jren.todo.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.format.datetime.DateFormatter;
 
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "todos")
-public class Todo extends Auditable{
+public class Todos extends Auditable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long todoid;
 
-//    @Column(nullable = false)
+    @Column(nullable = false)
     private String description;
 
     private boolean completed = false;
 
-//    @ManyToOne
-//    @JoinColumn(name = "userid", nullable = false)
-//    @JsonIgnoreProperties(value = "todos")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "userid", nullable = false)
+    @JsonIgnoreProperties(value = "todos")
+    private User user;
 
-    @OneToMany(mappedBy = "todo", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties(value = "todo")
-    private List<UserTodos> users = new ArrayList<>();
-
-    public Todo() {
+    public Todos() {
     }
 
-    public Todo(String description) {
+    public Todos(User user, String description ) {
         this.description = description;
+        this.user = user;
     }
-
-//
-//    public Todo(String dscription, boolean completed) {
-//        this.description = description;
-//        this.completed = completed;
-//    }
 
     public String getCreatedDate() {
         String pattern = "yyyy-MM-dd HH:mm:ss";
@@ -73,19 +60,11 @@ public class Todo extends Auditable{
         this.completed = completed;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-
-    public List<UserTodos> getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(List<UserTodos> users) {
-        this.users = users;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

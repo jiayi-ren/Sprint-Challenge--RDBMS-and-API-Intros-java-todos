@@ -1,4 +1,4 @@
-package local.jren.todos.views;
+package local.jren.todo.views;
 
 public interface TodoCounts {
     String getUsernamerpt();

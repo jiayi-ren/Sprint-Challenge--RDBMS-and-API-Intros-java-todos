@@ -1,4 +1,4 @@
-package local.jren.todos.services;
+package local.jren.todo.services;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;

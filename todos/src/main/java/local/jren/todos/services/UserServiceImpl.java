@@ -4,6 +4,7 @@ import local.jren.todos.models.Todo;
 import local.jren.todos.models.User;
 import local.jren.todos.models.UserTodos;
 import local.jren.todos.repositories.UserRepository;
+import local.jren.todos.views.TodoCounts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -108,5 +109,11 @@ public class UserServiceImpl implements UserService{
         } else {
             throw new EntityExistsException("User and Todo Combination Already Exists");
         }
+    }
+
+    @Override
+    public List<TodoCounts> getTodoCountsByUser() {
+
+        return userRepository.getTodoCountsByUser();
     }
 }

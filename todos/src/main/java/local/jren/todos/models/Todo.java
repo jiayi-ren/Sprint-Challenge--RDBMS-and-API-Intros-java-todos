@@ -1,9 +1,12 @@
 package local.jren.todos.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.format.datetime.DateFormatter;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -18,14 +21,14 @@ public class Todo extends Auditable{
 
     private boolean completed = false;
 
-    @ManyToOne
-    @JoinColumn(name = "userid", nullable = false)
-    @JsonIgnoreProperties(value = "todos")
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "userid", nullable = false)
+//    @JsonIgnoreProperties(value = "todos")
+//    private User user;
 
     @OneToMany(mappedBy = "todo", cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "todo")
-    private List<UserTodos> todos = new ArrayList<>();
+    private List<UserTodos> users = new ArrayList<>();
 
     public Todo() {
     }
@@ -34,15 +37,17 @@ public class Todo extends Auditable{
         this.description = description;
     }
 
-    public Todo(String description, User user) {
-        this.description = description;
-        this.user = user;
-    }
 //
 //    public Todo(String dscription, boolean completed) {
 //        this.description = description;
 //        this.completed = completed;
 //    }
+
+    public String getCreatedDate() {
+        String pattern = "yyyy-MM-dd HH:mm:ss";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        return simpleDateFormat.format(createddate);
+    }
 
     public long getTodoid() {
         return todoid;
@@ -68,19 +73,19 @@ public class Todo extends Auditable{
         this.completed = completed;
     }
 
-    public User getUser() {
-        return user;
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+
+    public List<UserTodos> getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<UserTodos> getTodos() {
-        return todos;
-    }
-
-    public void setTodos(List<UserTodos> todos) {
-        this.todos = todos;
+    public void setUsers(List<UserTodos> users) {
+        this.users = users;
     }
 }

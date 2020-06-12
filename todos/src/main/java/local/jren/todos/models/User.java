@@ -26,6 +26,10 @@ public class User extends Auditable{
     @JsonIgnoreProperties(value = "user", allowSetters = true)
     private List<UserTodos> todos = new ArrayList<>();
 
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    @JsonIgnoreProperties(value = "user", allowSetters = true)
+//    private List<UserTodos> usertodos = new ArrayList<>();
+
     public User() {
     }
 
@@ -82,6 +86,14 @@ public class User extends Auditable{
     public void setTodos(List<UserTodos> todos) {
         this.todos = todos;
     }
+
+//    public List<UserTodos> getUsertodos() {
+//        return usertodos;
+//    }
+//
+//    public void setUsertodos(List<UserTodos> usertodos) {
+//        this.usertodos = usertodos;
+//    }
 
     public void addTodo(Todo todo) { todos.add(new UserTodos(this, todo));}
 }

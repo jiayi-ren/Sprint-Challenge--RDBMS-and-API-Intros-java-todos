@@ -1,6 +1,7 @@
 package local.jren.todos.services;
 
 import local.jren.todos.models.User;
+import local.jren.todos.views.TodoCounts;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ public interface UserService {
     User save(User user);
     void deleteUserTodo(long userid, long todoid);
     void addUserTodo(long userid, long todoid);
+
+    List<TodoCounts> getTodoCountsByUser();
 }

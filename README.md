@@ -1922,9 +1922,24 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain what an RDBMS is including details the parts of its databases.
+
+    RDBMS is Relational DataBase Management System. Its database can have tables, records(rows), fields(columns), schemas, keys, etc.
+
 2. What are CRUD Operations and how do they relate to SQL and Http Methods?
+
+    CRUD operations are create, read, update, delete. 
+    In SQL, create = INSERT INTO or CREATE TABLE/INDEX, read = SELECT, update = UPDATE, delete = DELETE. 
+    In HTTP, create = POST, read = GET, update = PUT/PATCH, delete = DELETE
+
 3. What are examples of relationships between tables?
+
+    One to Many means one record in Table A can be related to many records in Table B. 
+    Many to Many means one record in Table A can be related to many records in Table B while one record in Table B can also related to many records in Table A.
+
 4. Explain the uses and differences of Spring JPA, Spring Data, and Hibernate.
+
+    Spring JPA(Java Persistance API) standardizes mapping of Java objects to relactional database and has interfaces like Entity, Relationships(@OneToMany). Spring Data JPA can help generate JPA queries. Hibernate is a JPA implementation that saves lots of work of creating directly with JPA such as @Table, @SQLInsert
+
 
 ## Instructions
 

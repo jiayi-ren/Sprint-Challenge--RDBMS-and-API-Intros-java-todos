@@ -1,8 +1,8 @@
-package com.lambdaschool.todos;
+package local.jren.todo;
 
-import com.lambdaschool.todos.models.Todos;
-import com.lambdaschool.todos.models.User;
-import com.lambdaschool.todos.services.UserService;
+import local.jren.todo.models.Todos;
+import local.jren.todo.models.User;
+import local.jren.todo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
